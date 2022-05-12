@@ -1,0 +1,35 @@
+<html>
+	<head>
+	<tital></tital>
+	<style>
+		/* .name-error{
+			color: red;
+		} */
+	</style>
+	<link rel="stylesheet" href="user-reg.css">
+	</head>
+	<body>
+		<form>
+			<header class = "headerContainer">
+				<h1></h1>
+					<div>
+                        <label for="text">User Name</label>
+                        <input type="text" id="name" name="name">
+                        <error-output class="name-error" for="text"> </error-output>
+					</div>
+		</form>
+	<script>
+        const userName = document.querySelector('#name');
+        const userNameError = document.querySelector('.name-error');
+        
+        userName.addEventListener('input',function () {
+            let userNameRegex= RegExp('^[A-Z]{1}[a-z]{2,}$');
+            if(userNameRegex.test(userName.value))
+                userNameError.textContent = "";
+            else
+                userNameError.textContent = "Incorrect Username"
+
+        })
+	</script>
+	</body>
+<html>
