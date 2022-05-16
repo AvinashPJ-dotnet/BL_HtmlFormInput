@@ -18,3 +18,10 @@ body{
 input{
     flex: auto;
 }
+#cCode{
+    width: 30px;
+}
+
+#error{
+    color: red;
+}

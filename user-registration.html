@@ -5,6 +5,8 @@
 		/* .name-error{
 			color: red;
 		} */
+
+
 	</style>
 	<link rel="stylesheet" href="user-reg.css">
 	</head>
@@ -24,6 +26,18 @@
                         <input type="email" id="mail-id" name="mail-id">
                         <error-output class="error-email" for="email"> </error-output>
 					</div>
+
+					<div>
+						<label for="text">Phone Number</label><br>
+                        <input type="text" id="phone" name="phone">
+                        <error-output id="error" class="error-phone" for="text"> </error-output>
+					</div>
+
+					<div>
+						<label for="text">Password</label><br>
+                        <input type="password" id="pass" name="pass">
+                        <error-output id="error" class="error-pass" for="text"> </error-output>
+					</div>
 		</form>
 	<script>
 		 //user name
@@ -34,6 +48,15 @@
         const emaiId =document.querySelector('#mail-id');
         const mailIdError = document.querySelector('.error-email');
         
+		  //phone and country code
+		// const countryCode =document.querySelector('#cCode');
+		const phoneNum =document.querySelector('#phone');
+        const phoneError = document.querySelector('.error-phone');
+
+		//password
+		const password =document.querySelector('#pass');
+        const passwordError = document.querySelector('.error-pass');
+
         userName.addEventListener('input',function () {
             let userNameRegex= RegExp('^[A-Z]{1}[a-z]{2,}$');
             if(userNameRegex.test(userName.value))
@@ -49,6 +72,29 @@
 				mailIdError.textContent = "";
             else
 				mailIdError.textContent = "Incorrect Email";
+        });
+
+
+		phoneNum.addEventListener('input',function () {
+            let phoneRegex= RegExp('^([1-9]{2,})[\s]([6-9]{1}[0-9]{9})$');
+			console.log(phoneRegex.test(phoneNum.value))
+            if(phoneRegex.test(phoneNum.value)){
+				phoneError.textContent = "";
+			}
+            else{
+				phoneError.textContent = "Incorrect phone number";
+			}
+        });
+
+		password.addEventListener('input',function () {
+            let phoneRegex= RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.+[0-9])(?=.*[%^<>?/:{}()*!|.,;_#&$+=@]).{8,}$');
+			console.log(phoneRegex.test(password.value))
+            if(phoneRegex.test(password.value)){
+				passwordError.textContent = "";
+			}
+            else{
+				passwordError.textContent = "Incorrect Password";
+			}
         });
 	</script>
 	</body>
