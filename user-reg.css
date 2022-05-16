@@ -8,6 +8,13 @@ body{
     margin: 0px auto;
     padding: 2em;
 }
-.name-error{
+.error-name{
     color: red;
+}
+
+.error-email{
+    color: red;
+}
+input{
+    flex: auto;
 }
